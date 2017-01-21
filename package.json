@@ -1,0 +1,19 @@
+{
+  "name": "hover-nodejs",
+  "version": "1.0.0",
+  "description": "Easy to use library for HoverLabs hover board (http://www.hoverlabs.co/products/hover/)",
+  "main": "Hover.js",
+  "git": "https://github.com/NorthMcCormick/hover-nodejs",
+  "keywords": [
+    "hover",
+    "labs",
+    "circuit",
+    "gpio"
+  ],
+  "dependencies": {
+    "ic2-bus": "^1.2.0",
+    "onoff": "^1.1.1"
+  },
+  "author": "North McCormick <northmccormick@icloud.com> (http://northmccormick.com)",
+  "license": "ISC"
+}
