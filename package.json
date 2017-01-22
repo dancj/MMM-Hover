@@ -1,6 +1,6 @@
 {
   "name": "hover-nodejs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Easy to use library for HoverLabs hover board (http://www.hoverlabs.co/products/hover/)",
   "main": "Hover.js",
   "git": "https://github.com/NorthMcCormick/hover-nodejs",
