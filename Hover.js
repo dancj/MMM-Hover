@@ -76,33 +76,38 @@ Hover.prototype.listen = function(callback, rate) {
 				pinTs.setDirection('out');
 				pinTs.setActiveLow(false);
 				
-				bus.readI2cBlockSync(i2cAddress, 0, 18, buffer);
-				
-				var guestureEvent = buffer[10];
-				var touchEvent = (((buffer[14] & 0b11100000) >> 5) | ((buffer[15] & 0b00000011) << 3));
-				
-				if(guestureEvent) {
-					var eventValue = (1 << (buffer[10] - 1)).toString();	
+				try {
+					bus.readI2cBlockSync(i2cAddress, 0, 18, buffer);
 					
-					if(hoverGestureEvents[eventValue] !== undefined) {
-						if(vm.debug) {
-							console.log(hoverGestureEvents[eventValue]);
-						}
+					var guestureEvent = buffer[10];
+					var touchEvent = (((buffer[14] & 0b11100000) >> 5) | ((buffer[15] & 0b00000011) << 3));
+					
+					if(guestureEvent) {
+						var eventValue = (1 << (buffer[10] - 1)).toString();	
 						
-						callback(hoverGestureEvents[eventValue]);
+						if(hoverGestureEvents[eventValue] !== undefined) {
+							if(vm.debug) {
+								console.log(hoverGestureEvents[eventValue]);
+							}
+							
+							callback(hoverGestureEvents[eventValue]);
+						}
 					}
-				}
 
-				if(touchEvent) {
-					var eventValue = touchEvent.toString();
-					
-					if(hoverTapEvents[eventValue] !== undefined) {
-						if(vm.debug) {
-							console.log(hoverTapEvents[eventValue]);
-						}
+					if(touchEvent) {
+						var eventValue = touchEvent.toString();
 						
-						callback(hoverTapEvents[eventValue]);
+						if(hoverTapEvents[eventValue] !== undefined) {
+							if(vm.debug) {
+								console.log(hoverTapEvents[eventValue]);
+							}
+							
+							callback(hoverTapEvents[eventValue]);
+						}
 					}
+				} catch(e){
+					console.error(e);
+					console.error('Continuing to listen anyway');
 				}
 				
 				pinTs.writeSync(1);
