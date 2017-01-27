@@ -1,6 +1,10 @@
-# Unofficial HoverLabs Hover NodeJS Module
+# Unofficial HoverLabs Hover (Version 1) NodeJS Module
 
 HoverLabs ships a really neat board which lets your users interact with circuits using in-air gestures and taps. I've ported the Python library for the legacy Hover (has not been tested with the new, but might be backwards compatible) to use in NodeJS becuase I hate Python.
+
+## Important
+
+This library is only meant to detect things for the legacy Hover board, or Hover Original. I'm waiting on my 2.0 board to write up a v2 version. 
 
 ## Requirements
 
