@@ -4,7 +4,7 @@
   "description": "Module Base template for create new modules for MagicMirror",
   "main": "MagicMirror-Module-Template.js",
   "scripts": {
-    "test": "./node_modules/grunt/bin/grunt"
+    "test": "grunt"
   },
   "author": "Rodrigo Ramírez Norambuena",
   "license": "MIT",

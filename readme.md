@@ -1,16 +1,9 @@
-# MagicMirror-Module-Template
-This is a module to help developers to start building their own modules for the [MagicMirror](https://github.com/MichMich/MagicMirror). 
-
-There samples of code for:
-- External request
-- Config parameters
-- Custom URL path route
-- Passing of messages (NOTIFICATIONS)
-
-Also this module include tasks for checking your code. For that you need install the developer dependencies.
+# MagicMirror-Module-Hover
+This is a [MagicMirror](https://github.com/MichMich/MagicMirror) module to communicate with the  
+[HoverLabs Hover](http://www.hoverlabs.co/products/hover/).
 
 ```
-cd MI_MODULE_PATH && npm install 
+cd MI_MODULE_PATH && npm install
 ```
 
 Run the `test` npm script
