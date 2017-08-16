@@ -1,32 +1,22 @@
 {
-  "name": "Magic-Mirror-Module-PIR-Sensor",
-  "version": "1.1.0",
-  "description": "PIR motion sensor module for the Magic Mirror.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paviro/MMM-PIR-Sensor"
-  },
-  "keywords": [
-    "magic mirror",
-    "smart mirror",
-    "PIR-Sensor",
-    "module",
-    "motion"
-  ],
-  "author": "Paul-Vincent Roll",
-  "contributors": "https://github.com/paviro/MMM-PIR-Sensor/graphs/contributors",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/paviro/MMM-PIR-Sensor/issues"
-  },
-  "homepage": "https://github.com/paviro/MMM-PIR-Sensor#readme",
+  "name": "MagicMirror-Module-Template",
+  "version": "1.2.0",
+  "description": "Module Base template for create new modules for MagicMirror",
+  "main": "MagicMirror-Module-Template.js",
   "scripts": {
-    "postinstall": "node_modules/.bin/electron-rebuild -e ../../node_modules/electron"
+    "test": "./node_modules/grunt/bin/grunt"
   },
-  "dependencies": {
-    "onoff": "latest"
-  },
+  "author": "Rodrigo Ramírez Norambuena",
+  "license": "MIT",
   "devDependencies": {
-    "electron-rebuild": "^1.2.1"
+    "grunt": "latest",
+    "grunt-eslint": "latest",
+    "grunt-jsonlint": "latest",
+    "grunt-markdownlint": "^1.0.13",
+    "grunt-stylelint": "latest",
+    "grunt-yamllint": "^0.3.0",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "latest",
+    "time-grunt": "latest"
   }
 }
