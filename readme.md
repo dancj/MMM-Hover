@@ -37,6 +37,16 @@ modules: [
 ]
 ```
 
+## Raspberry Pi GPIO Pins
+
+1. HOST_V+    ----    3V3 pin
+1. RESET      ----    Any digital pin, for example: pin 18, GPIO 24 (BCM Mode)
+1. SCL        ----    SCL pin
+1. SDA        ----    SDA pin
+1. GND        ----    Ground Pin
+1. 3V3        ----    3V3 pin
+1. TS         ----    Any digital pin, for example: pin 16, GPIO 23 (BCM Mode)
+
 ## Configuration Options
 The following properties can be configured:
 
@@ -50,13 +60,35 @@ The following properties can be configured:
 	<thead>
 	<tbody>
 		<tr>
-			<td><code>sensorPIN</code></td>
-			<td>The pin your PIR-sensor is connected to.<br>
-				<br><b>Possible values:</b> <code>int</code>
-				<br><b>Default value:</b> <code>22</code>
-				<br><b>Note:</b> Please use BCM-numbering.
+			<td><code>updateInterval</code></td>
+			<td>Time in ms to update display</td>
+		</tr>
+    <tr>
+			<td><code>i2cAddress</code></td>
+			<td>i2c address<br>
+				<br><b>Value from HoverLabs library:</b> <code>0x42</code>
 			</td>
 		</tr>
+    <tr>
+			<td><code>TS Pin</code></td>
+			<td>Input pin for hover board, which will receive an 8-bit binary value to indicate the event type, gesture direction, and tap location.<br>
+				<br><b>Value from HoverLabs library:</b> <code>23</code>
+        <br>Note: please use BCM numbering
+			</td>
+		</tr>
+    <tr>
+			<td><code>Reset Pin</code></td>
+			<td>Reset pin<br>
+				<br><b>Value from HoverLabs library:</b> <code>24</code>
+        <br>Note: please use BCM numbering
+			</td>
+		</tr>
+    <tr>
+      <td><code>Default Rate</code></td>
+      <td>Polling rate in milliseconds to check for input from hover board<br>
+        <br><b>Value from HoverLabs library:</b> <code>10</code>
+      </td>
+    </tr>
 	</tbody>
 </table>
 
