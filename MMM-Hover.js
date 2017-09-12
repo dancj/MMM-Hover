@@ -3,19 +3,21 @@
 /* Magic Mirror
  * Module: MMM-Hover
  *
- * By Dancj
+ * By (Dancj) Dan Thayer
  * ISC Licensed.
  */
 
-Module.register("{{MODULE_NAME}}", {
+Module.register("MMM-Hover", {
 	defaults: {
 		updateInterval: 60000,
 		retryDelay: 5000,
-		i2cAddress = null,
-		i2cBus = 0,
-		pinTs = null,
-		pinReset = null,
-		defaultRate = 10
+		i2cAddress: null,
+		i2cBus: 0,
+		pinTs: null,
+		pinReset: null,
+		defaultRate: 10,
+		pollRate: 0,
+		debug: false
 	},
 
 	requiresVersion: "2.1.0", // Required version of MagicMirror
@@ -23,8 +25,8 @@ Module.register("{{MODULE_NAME}}", {
 	start: function() {
 		var self = this;
 
-		this.sendSocketNotification('CONFIG', this.config);
-		Log.info('Starting module: ' + this.name);
+		this.sendSocketNotification("CONFIG", this.config);
+		Log.info("Starting module: " + this.name);
 
 		// TODO: show DOM message
 	},

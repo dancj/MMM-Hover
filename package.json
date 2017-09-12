@@ -1,13 +1,14 @@
 {
-  "name": "MagicMirror-Module-Template",
-  "version": "1.2.0",
-  "description": "Module Base template for create new modules for MagicMirror",
-  "main": "MagicMirror-Module-Template.js",
+  "name": "MMM-Hover",
+  "version": "1.0.0",
+  "description": "Unofficial module for bringing HoverLabs's Hover board to the MagicMirror",
+  "repository": "https://github.com/dancj/MMM-Hover",
+  "main": "MMM-Hover.js",
   "scripts": {
     "test": "grunt"
   },
-  "author": "Rodrigo Ramírez Norambuena",
-  "license": "MIT",
+  "author": "Dan Thayer",
+  "license": "ISC",
   "devDependencies": {
     "grunt": "latest",
     "grunt-eslint": "latest",
@@ -15,8 +16,12 @@
     "grunt-markdownlint": "^1.0.13",
     "grunt-stylelint": "latest",
     "grunt-yamllint": "^0.3.0",
-    "stylelint": "^7.10.1",
+    "stylelint": "latest",
     "stylelint-config-standard": "latest",
     "time-grunt": "latest"
+  },
+  "dependencies": {
+    "onoff": "latest",
+    "i2c-bus": "latest"
   }
 }

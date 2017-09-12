@@ -1,6 +1,6 @@
 # MagicMirror-Module-Hover
 This is a [MagicMirror](https://github.com/MichMich/MagicMirror) module to communicate with the  
-[HoverLabs Hover](http://www.hoverlabs.co/products/hover/). The Hover can detect a hand direction swiping in front of it (Up, Down, Left, Right) and taps on the board surface (Top, Left, Bottom, Top, Middle).
+[HoverLabs Hover](http://www.hoverlabs.co/products/hover/) (Unofficial). The Hover can detect a hand direction swiping in front of it (Up, Down, Left, Right) and taps on the board surface (Top, Left, Bottom, Top, Middle).
 
 Based on a JS adaptation of the original python library from HoverLabs, [linked here](https://github.com/NorthMcCormick/hover-nodejs/blob/master/Hover.js).
 
@@ -32,6 +32,10 @@ modules: [
 		module: 'MMM-Hover',
 		config: {
 			// See 'Configuration options' for more information.
+			i2cAddress: 0x42,
+			pinTs: 23,
+			pinReset: 24,
+			pollRate: 10
 		}
 	}
 ]
@@ -70,23 +74,29 @@ The following properties can be configured:
 			</td>
 		</tr>
     <tr>
-			<td><code>TS Pin</code></td>
+			<td><code>pinTs</code></td>
 			<td>Input pin for hover board, which will receive an 8-bit binary value to indicate the event type, gesture direction, and tap location.<br>
 				<br><b>Value from HoverLabs library:</b> <code>23</code>
         <br>Note: please use BCM numbering
 			</td>
 		</tr>
     <tr>
-			<td><code>Reset Pin</code></td>
+			<td><code>pinReset</code></td>
 			<td>Reset pin<br>
 				<br><b>Value from HoverLabs library:</b> <code>24</code>
         <br>Note: please use BCM numbering
 			</td>
 		</tr>
     <tr>
-      <td><code>Default Rate</code></td>
+      <td><code>pollRate</code></td>
       <td>Polling rate in milliseconds to check for input from hover board<br>
-        <br><b>Value from HoverLabs library:</b> <code>10</code>
+        <br><b>Value from HoverLabs library:</b> <code>1</code>
+      </td>
+    </tr>
+		<tr>
+      <td><code>debug</code></td>
+      <td>Put module in debug mode (prints messages to browser console)<br>
+        <br><b>Default value:</b> <code>false</code>
       </td>
     </tr>
 	</tbody>
@@ -104,11 +114,11 @@ Installed via `npm install`
 Pull requests welcome.
 
 Current Tests:
-- [ESLint](http://eslint.org/) for linting the javascript
-- [stylelint](https://stylelint.io/) for linting the CSS with [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) as its base
-- [jsonlint](https://github.com/zaach/jsonlint) for linting the translation files
-- [markdownlint](https://github.com/DavidAnson/markdownlint) for checking the markdown files (`README.md`, `CHANGELOG.md`, `LICENSE.txt`)
-- [js-yaml](https://github.com/nodeca/js-yaml) to lint the `.travis.yml` (run through [grunt-yamllint](https://github.com/geedew/grunt-yamllint))
+* [ESLint](http://eslint.org/) for linting the javascript
+* [stylelint](https://stylelint.io/) for linting the CSS with [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) as its base
+* [jsonlint](https://github.com/zaach/jsonlint) for linting the translation files
+* [markdownlint](https://github.com/DavidAnson/markdownlint) for checking the markdown files (`README.md`, `CHANGELOG.md`, `LICENSE.txt`)
+* [js-yaml](https://github.com/nodeca/js-yaml) to lint the `.travis.yml` (run through [grunt-yamllint](https://github.com/geedew/grunt-yamllint))
 
 ## LICENSE
 
