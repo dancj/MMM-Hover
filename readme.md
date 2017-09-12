@@ -1,4 +1,4 @@
-# MagicMirror-Module-Hover
+# MMM-Hover
 This is a [MagicMirror](https://github.com/MichMich/MagicMirror) module to communicate with the  
 [HoverLabs Hover](http://www.hoverlabs.co/products/hover/) (Unofficial). The Hover can detect a hand direction swiping in front of it (Up, Down, Left, Right) and taps on the board surface (Top, Left, Bottom, Top, Middle).
 
