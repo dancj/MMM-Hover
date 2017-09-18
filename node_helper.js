@@ -71,7 +71,7 @@ module.exports = NodeHelper.create({
 		if (event.substr(0,3) === "tap") {
 			this.sendSocketNotification("TAP", event.substr(4));
 		} else if (event.substr(0,5) === "swipe"){
-			this.sendSocketNotification("SWIPE", event.substr(6);
+			this.sendSocketNotification("SWIPE", event.substr(6));
 		} else {
 			console.log("[Hover] unknown event received from board: " + event);
 		}
