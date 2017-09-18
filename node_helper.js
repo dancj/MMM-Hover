@@ -64,7 +64,17 @@ module.exports = NodeHelper.create({
 	},
 
 	handleHoverEvent: function (event) {
-		console.log("[Hover] handled event: " + event);
+		if (this.config.debug) {
+			console.log("[Hover] handled event: " + event);
+		}
+
+		if (event.substr(0,3) === "tap") {
+			this.sendSocketNotification("TAP", event.substr(4));
+		} else if (event.substr(0,5) === "swipe"){
+			this.sendSocketNotification("SWIPE", event.substr(6);
+		} else {
+			console.log("[Hover] unknown event received from board: " + event);
+		}
 	}
 
 });
