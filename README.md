@@ -2,7 +2,7 @@
 This is a [MagicMirror](https://github.com/MichMich/MagicMirror) module to communicate with the  
 [HoverLabs Hover](http://www.hoverlabs.co/products/hover/) (Unofficial). The Hover can detect a hand direction swiping in front of it (Up, Down, Left, Right) and taps on the board surface (Top, Left, Bottom, Top, Middle).
 
-Based on a JS adaptation of the original python library from HoverLabs, [linked here](https://github.com/NorthMcCormick/hover-nodejs/blob/master/Hover.js).
+Uses NPM package hover-nodejs, which is based on the original python library from HoverLabs, [linked here](https://github.com/NorthMcCormick/hover-nodejs/blob/master/Hover.js).
 
 
 ## Installation
@@ -101,18 +101,11 @@ Installed via `npm install`
 
 ## Developers
 
-Run the `test` npm script
+Run the `test` npm script, which runs linters
 
 ```
 npm test
 ```
-
-Current Tests:
-* [ESLint](http://eslint.org/) for linting the javascript
-* [stylelint](https://stylelint.io/) for linting the CSS with [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) as its base
-* [jsonlint](https://github.com/zaach/jsonlint) for linting the translation files
-* [markdownlint](https://github.com/DavidAnson/markdownlint) for checking the markdown files (`README.md`, `CHANGELOG.md`, `LICENSE.txt`)
-* [js-yaml](https://github.com/nodeca/js-yaml) to lint the `.travis.yml` (run through [grunt-yamllint](https://github.com/geedew/grunt-yamllint))
 
 ## LICENSE
 
