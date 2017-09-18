@@ -4,7 +4,7 @@
  * Module: MMM-Hover
  *
  * By (Dancj) Dan Thayer
- * ISC Licensed.
+ * MIT Licensed.
  */
 
 Module.register("MMM-Hover", {

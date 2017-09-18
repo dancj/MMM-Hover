@@ -8,8 +8,9 @@
     "test": "grunt"
   },
   "author": "Dan Thayer",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
+    "electron-rebuild": "^1.6.0",
     "grunt": "latest",
     "grunt-eslint": "latest",
     "grunt-jsonlint": "latest",
@@ -21,7 +22,6 @@
     "time-grunt": "latest"
   },
   "dependencies": {
-    "onoff": "latest",
-    "i2c-bus": "latest"
+    "hover-nodejs": "latest"
   }
 }
