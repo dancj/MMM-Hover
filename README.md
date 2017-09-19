@@ -4,14 +4,18 @@ This is a [MagicMirror](https://github.com/MichMich/MagicMirror) module to commu
 
 Uses NPM package hover-nodejs, which is based on the original python library from HoverLabs, [linked here](https://github.com/NorthMcCormick/hover-nodejs/blob/master/Hover.js).
 
+Getting events from the Hover board is cool and all, but to make it useful these events can trigger notifications to other modules. For example, configured by default, swiping or tapping left/right will send off ```PAGE_DECREMENT``` and ```PAGE_INCREMENT``` for the [MMM-pages](https://github.com/edward-shen/MMM-pages) module to change pages.
 
 ## Installation
 
 ```
+cd ~/MagicMirror/modules
+git clone https://github.com/dancj/MMM-Hover
+
 cd MMM-Hover && npm install
 ```
 
-This installs required NPM packages. Set up your pins of choice in the config file.
+This installs required NPM packages. Set up your GPIO pins of choice in the config file.
 
 If you have any suggestions, please let me know [with an issue](https://github.com/dancj/MMM-Hover/issues/new).
 
@@ -31,6 +35,38 @@ modules: [
 	}
 ]
 ```
+
+To customize the events triggered by Hover events, use this option:
+```
+modules: [
+	{
+		module: 'MMM-Hover',
+		config: {
+			// See 'Configuration options' for more information.
+			i2cAddress: 0x42,
+			pinTs: 23,
+			pinReset: 24,
+			pollRate: 10,
+			triggeredEvents: {
+				tap: {
+					up: "",
+					down: "",
+					west: "PAGE_DECREMENT",
+					east: "PAGE_INCREMENT",
+					center: ""
+				},
+				swipe: {
+					up: "",
+					down: "",
+					left: "PAGE_DECREMENT",
+					right: "PAGE_INCREMENT"
+				}
+			}
+		}
+	}
+]
+```
+
 
 ## Raspberry Pi GPIO Pins
 
@@ -88,6 +124,31 @@ The following properties can be configured:
       <td><code>debug</code></td>
       <td>Put module in debug mode (prints messages to browser console)<br>
         <br><b>Default value:</b> <code>false</code>
+      </td>
+    </tr>
+		<tr>
+      <td><code>triggeredEvents</code></td>
+      <td>Notifications that get fired off upon the different taps and swipes received from Hover. Empty strings result in no action.<br>
+        <br><b>Default value:</b>
+
+```
+				{
+					tap: {
+						up: "",
+						down: "",
+						west: "PAGE_DECREMENT",
+						east: "PAGE_INCREMENT",
+						center: ""
+					},
+					swipe: {
+						up: "",
+						down: "",
+						left: "PAGE_DECREMENT",
+						right: "PAGE_INCREMENT"
+					}
+				}
+```
+
       </td>
     </tr>
 	</tbody>

@@ -8,21 +8,6 @@
 var NodeHelper = require("node_helper");
 var Hover 	   = require("hover-nodejs");
 
-const hoverGestureEvents = {
-	"2": "swipe-right",
-	"4": "swipe-left",
-	"8": "swipe-up",
-	"16": "swipe-down"
-};
-
-var hoverTapEvents = {
-	"1": "tap-south",
-	"2": "tap-west",
-	"4": "tap-north",
-	"8": "tap-east",
-	"16": "tap-center"
-};
-
 module.exports = NodeHelper.create({
 	start: function () {
 		console.log("[Hover] Starting node_helper");

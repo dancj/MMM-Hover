@@ -17,7 +17,22 @@ Module.register("MMM-Hover", {
 		pinReset: null,
 		defaultRate: 10,
 		pollRate: 0,
-		debug: false
+		debug: false,
+		triggeredEvents: { // TODO: trigger multiple events from the same event
+			tap: {
+				up: "",
+				down: "",
+				west: "PAGE_DECREMENT",
+				east: "PAGE_INCREMENT",
+				center: ""
+			},
+			swipe: {
+				up: "",
+				down: "",
+				left: "PAGE_DECREMENT",
+				right: "PAGE_INCREMENT"
+			}
+		}
 	},
 
 	requiresVersion: "2.1.0", // Required version of MagicMirror
@@ -28,23 +43,27 @@ Module.register("MMM-Hover", {
 		this.sendSocketNotification("CONFIG", this.config);
 		Log.info("Starting module: " + this.name);
 
-		// TODO: show DOM message
+		// TODO: show DOM message?
 	},
 
 	// socketNotificationReceived from helper
 	socketNotificationReceived: function (notification, payload) {
 		if(notification === "SWIPE") {
-			this.gesture = payload;
-			this.updateDom();
 
-			// report out to listeners
-			this.sendNotification(notification, payload);
+			var event = this.config.triggeredEvents.swipe[payload];
+			Log.info("Hover detected Swipe in direction: " + event);
+			if (event) {
+				// report out to listeners
+				this.sendNotification(notification, payload);
+			}
 
 		} else if (notification === "TAP") {
-			this.tap = payload;
-			this.updateDom();
 
-			this.sendNotification(notification, payload);
+			var event = this.config.triggeredEvents.tap[payload];
+			Log.info("Hover detected Tap at position: " + event);
+			if (event) {
+				this.sendNotification(notification, payload);
+			}
 		}
 	}
 });
