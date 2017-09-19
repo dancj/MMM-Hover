@@ -20,8 +20,8 @@ Module.register("MMM-Hover", {
 		debug: false,
 		triggeredEvents: { // TODO: trigger multiple events from the same event
 			tap: {
-				up: "",
-				down: "",
+				north: "",
+				south: "",
 				west: "PAGE_DECREMENT",
 				east: "PAGE_INCREMENT",
 				center: ""
@@ -45,24 +45,28 @@ Module.register("MMM-Hover", {
 
 		// TODO: show DOM message?
 	},
+	
+	notificationReceived: function (notification, payload, sender) {
+		// do nothing
+	},
 
 	// socketNotificationReceived from helper
 	socketNotificationReceived: function (notification, payload) {
 		if(notification === "SWIPE") {
 
 			var event = this.config.triggeredEvents.swipe[payload];
-			Log.info("Hover detected Swipe in direction: " + event);
+			Log.info("Hover detected Swipe in direction: " + payload + ", triggering: " + event);
 			if (event) {
 				// report out to listeners
-				this.sendNotification(notification, payload);
+				this.sendNotification(event, "");
 			}
 
 		} else if (notification === "TAP") {
 
 			var event = this.config.triggeredEvents.tap[payload];
-			Log.info("Hover detected Tap at position: " + event);
+			Log.info("Hover detected Tap at position: " + payload + ", triggering" + event);
 			if (event) {
-				this.sendNotification(notification, payload);
+				this.sendNotification(event, "");
 			}
 		}
 	}
