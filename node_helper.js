@@ -25,7 +25,7 @@ module.exports = NodeHelper.create({
 	socketNotificationReceived: function(notification, payload) {
 		console.log("[Hover] received socket notification");
 		if (notification === "CONFIG" && this.started == false) {
-    		console.log("[Hover] Creatig hover in node_helper");
+    	console.log("[Hover] Creatig hover in node_helper");
 			const self = this;
 			self.config = payload;
 
@@ -36,29 +36,29 @@ module.exports = NodeHelper.create({
 				self.config.pinReset,
 				i2cBus);
 
+			var handleHoverEvent = function (event) {
+				if (self.config.debug) {
+					console.log("[Hover] handled event: " + event);
+				}
+
+				if (event.substr(0,3) === "tap") {
+					sendSocketNotification("TAP", event.substr(4));
+				} else if (event.substr(0,5) === "swipe"){
+					sendSocketNotification("SWIPE", event.substr(6));
+				} else {
+					console.log("[Hover] unknown event received from board: " + event);
+				}
+			};
+
 			hover.init().then(function() {
 				console.log("[Hover] board ready for input");
 
-				hover.listen(self.handleHoverEvent, self.config.pollRate || self.config.defaultRate);
+				hover.listen(handleHoverEvent, self.config.pollRate || self.config.defaultRate);
 			}, function (err) {
 				console.error("[Hover] Could not init hover board: " + err);
 			});
 
 			self.started = true;
-		}
-	},
-
-	handleHoverEvent: function (event) {
-		if (this.config.debug) {
-			console.log("[Hover] handled event: " + event);
-		}
-
-		if (event.substr(0,3) === "tap") {
-			this.sendSocketNotification("TAP", event.substr(4));
-		} else if (event.substr(0,5) === "swipe"){
-			this.sendSocketNotification("SWIPE", event.substr(6));
-		} else {
-			console.log("[Hover] unknown event received from board: " + event);
 		}
 	}
 
