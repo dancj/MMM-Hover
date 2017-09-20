@@ -10,7 +10,6 @@ var Hover 	   = require("hover-nodejs");
 
 module.exports = NodeHelper.create({
 	start: function () {
-		console.log("[Hover] Starting node_helper");
 		this.started = false;
 	},
 
