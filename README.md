@@ -49,8 +49,8 @@ modules: [
 			pollRate: 10,
 			triggeredEvents: {
 				tap: {
-					up: "",
-					down: "",
+					north: "",
+					south: "",
 					west: "PAGE_DECREMENT",
 					east: "PAGE_INCREMENT",
 					center: ""
