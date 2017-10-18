@@ -148,7 +148,6 @@ The following properties can be configured:
 					}
 				}
 ```
-
       </td>
     </tr>
 	</tbody>
@@ -160,6 +159,15 @@ The following properties can be configured:
 Installed via `npm install`
 * [hover-nodejs](https://github.com/NorthMcCormick/hover-nodejs)
 
+## Troubleshooting
+
+1. Page won't change
+
+	- Check that LED on back of Hover board is lit. If not power wires are not correct
+	- Check that python library from Hoverlabs works, [found here](https://github.com/hoverlabs/hover_raspberrypi). If this detects motion, you have the wiring correct.
+	- Check that [MMM-pages](https://github.com/edward-shen/MMM-pages) is installed
+
+
 ## Developers
 
 Run the `test` npm script, which runs linters
@@ -169,8 +177,6 @@ npm test
 ```
 
 ## LICENSE
-
-Copyright 2017 Dan Thayer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
