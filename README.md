@@ -165,7 +165,8 @@ Installed via `npm install`
 
 	- Check that LED on back of Hover board is lit. If not power wires are not correct
 	- Check that python library from Hoverlabs works, [found here](https://github.com/hoverlabs/hover_raspberrypi). If this detects motion, you have the wiring correct.
-	- Check that [MMM-pages](https://github.com/edward-shen/MMM-pages) is installed
+	- Check that [MMM-pages](https://github.com/edward-shen/MMM-pages) is installed, and you have multiple pages set up
+	- Check config.js file.. by default when you swipe or tap left or right, it will trigger PAGE_INCREMENT and PAGE_DECREMENT
 
 
 ## Developers
